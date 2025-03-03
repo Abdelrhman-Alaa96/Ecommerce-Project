@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "public": true,
+    "routes": [
+      {
+        "src": "/brands/:id",
+        "dest": "/brands/:id",
+        "prerender": false
+      },
+      {
+        "src": "/categories/:id",
+        "dest": "/categories/:id",
+        "prerender": false
+      },
+      {
+        "src": "/details/:id",
+        "dest": "/details/:id",
+        "prerender": false
+      }
+    ],
+    "builds": [
+      {
+        "src": "angular.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist/final-project" }
+      }
+    ]
+  }
+  
