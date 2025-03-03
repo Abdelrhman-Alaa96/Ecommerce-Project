@@ -4,18 +4,15 @@
     "routes": [
       {
         "src": "/brands/:id",
-        "dest": "/brands/:id",
-        "prerender": false
+        "dest": "/brands/:id"
       },
       {
         "src": "/categories/:id",
-        "dest": "/categories/:id",
-        "prerender": false
+        "dest": "/categories/:id"
       },
       {
         "src": "/details/:id",
-        "dest": "/details/:id",
-        "prerender": false
+        "dest": "/details/:id"
       }
     ],
     "builds": [
