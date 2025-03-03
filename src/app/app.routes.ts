@@ -49,7 +49,7 @@ export const routes: Routes = [  // ✅ Exporting the routes
                 title: 'Product Details',
                 canActivate: [AuthGuard],
                 data: { renderMode: 'default' } // 👈 Disable prerendering
-            }
+            },
             { path: '**', loadComponent: () => import('./pages/notfound/notfound.component').then(m => m.NotfoundComponent) },
         ]
     }
