@@ -1,3 +1,4 @@
+import { RenderMode} from '@angular/ssr';
 import { Routes } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
@@ -25,28 +26,29 @@ export const routes: Routes = [  // ✅ Exporting the routes
             { path: 'brands', loadComponent: () => import('./pages/brands/brands.component').then(m => m.BrandsComponent), title: 'brands', canActivate: [AuthGuard] },
             {
                 path: 'brands/:id',
-                loadComponent: () => import('./pages/brand-details/brand-details.component').then(m => m.BrandDetailsComponent),
+
+                loadComponent: () => import('./pages/brand-details/brand-details.component')
+                    .then(m => m.BrandDetailsComponent),
                 title: 'brands-Detail',
                 canActivate: [AuthGuard],
-                data: { renderMode: 'dynamic' }  // ✅ Disable Prerendering
             }, { path: 'products', loadComponent: () => import('./pages/products/products.component').then(m => m.ProductsComponent), title: 'products', canActivate: [AuthGuard] },
             { path: 'categories', loadComponent: () => import('./pages/categories/categories.component').then(m => m.CategoriesComponent), title: 'categories', canActivate: [AuthGuard] },
             {
                 path: 'categories/:id',
-                loadComponent: () => import('./pages/CategoryDetails/category-details.component').then(m => m.CategoryDetailsComponent),
+                loadComponent: () => import('./pages/CategoryDetails/category-details.component')
+                    .then(m => m.CategoryDetailsComponent),
                 title: 'categories',
                 canActivate: [AuthGuard],
-                data: { renderMode: 'dynamic' }  // ✅ Disable Prerendering
-            },
-            { path: 'payment', loadComponent: () => import('./pages/payment/payment.component').then(m => m.PaymentComponent), title: 'payment', canActivate: [AuthGuard] },
+            }, { path: 'payment', loadComponent: () => import('./pages/payment/payment.component').then(m => m.PaymentComponent), title: 'payment', canActivate: [AuthGuard] },
             { path: 'allorders', loadComponent: () => import('./pages/allorders/allorders.component').then(m => m.AllOrdersComponent), title: 'Orders', canActivate: [AuthGuard] },
 
-            { path: 'details/:id', 
-                loadComponent: () => import('./pages/details/details.component').then(m => m.ProductDetailsComponent), 
-                title: 'Product Details', 
-                canActivate: [AuthGuard], 
-                data: { renderMode: 'dynamic' }  // ✅ Disable Prerendering
-              },
+            {
+                path: 'details/:id',
+                loadComponent: () => import('./pages/details/details.component')
+                    .then(m => m.ProductDetailsComponent),
+                title: 'Product Details',
+                canActivate: [AuthGuard],
+            },
             { path: '**', loadComponent: () => import('./pages/notfound/notfound.component').then(m => m.NotfoundComponent) },
         ]
     }
